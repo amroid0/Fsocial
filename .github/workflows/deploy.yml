@@ -121,7 +121,7 @@ jobs:
           releaseDirectory: app/build/outputs/bundle/release
           signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
           alias: ${{ secrets.FRIENDS_ALIAS }}
-          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyStorePassword: ${{ secrets.KEYSTRORE_PASSWORD }}
           keyPassword: ${{ secrets.FRIENDS_PASSWORD }}
 
       - name: Setup authorization with Google Play Store
