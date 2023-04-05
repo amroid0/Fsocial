@@ -120,7 +120,7 @@ jobs:
         with:
           releaseDirectory: app/build/outputs/bundle/release
           signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
-          alias: ${{ secrets.FRIENDS_ALIAS }}
+          alias: ${{ secrets.FREINDS_ALIAS }}
           keyStorePassword: ${{ secrets.KEYSTRORE_PASSWORD }}
           keyPassword: ${{ secrets.FRIENDS_PASSWORD }}
 
