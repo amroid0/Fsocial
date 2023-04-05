@@ -1,4 +1,4 @@
-name: publish release2
+name: publish release3
 
 on:
   push:
