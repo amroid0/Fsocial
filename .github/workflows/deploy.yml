@@ -1,8 +1,8 @@
-name: deploy
+name: publish release3
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "master" ]
 
 jobs:
 
@@ -120,8 +120,8 @@ jobs:
         with:
           releaseDirectory: app/build/outputs/bundle/release
           signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
-          alias: ${{ secrets.FRIENDS_ALIAS }}
-          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          alias: ${{ secrets.FREINDS_ALIAS }}
+          keyStorePassword: ${{ secrets.KEYSTRORE_PASSWORD }}
           keyPassword: ${{ secrets.FRIENDS_PASSWORD }}
 
       - name: Setup authorization with Google Play Store
@@ -133,6 +133,6 @@ jobs:
           serviceAccountJson: service_account.json
           packageName: com.amroid.fsocial
           releaseFiles: app/build/outputs/bundle/release/app-release.aab
-          track: alpha
+          track: internal
           status: 'completed'
           whatsNewDirectory: whatsNew/
