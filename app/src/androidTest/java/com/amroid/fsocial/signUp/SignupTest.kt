@@ -16,7 +16,7 @@ class SignupTest {
         launchSignupScreen(signUpTestRule){
             typeEmail("amr@gmail.com")
             typePassword("123")
-            performSignup()
+            submit()
         } verfiy {
             timeLineScreenIsDisplay()
         }

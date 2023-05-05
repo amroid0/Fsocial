@@ -20,12 +20,12 @@ class SignupAction(private val rule: AndroidComposeTestRule<ActivityScenarioRule
 
     fun typeEmail(email: String) {
         val emailHint = rule.activity.getString(R.string.email)
-        rule.onNodeWithText(email).performTextInput(email)
+        rule.onNodeWithText(emailHint).performTextInput(email)
     }
 
     fun typePassword(password: String) {
         val passwordHint = rule.activity.getString(R.string.password)
-        rule.onNodeWithText(password).performTextInput(password)
+        rule.onNodeWithText(passwordHint).performTextInput(password)
     }
 
     fun submit() {
