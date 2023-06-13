@@ -25,13 +25,22 @@ class SignupViewModel(val regexCredentialValidator: RegexCredentialValidator) : 
                 if (isExists) {
                     _mutableSignupState.value = SignupState.DuplicateAccount
                 } else {
-                    val userId = email.takeWhile { it != '@' } + "Id"
-                    val user = User(userId, email, info)
-                    usersForPassword.getOrPut(password,::mutableListOf).add(user)
+                    val user = createUser(email, info, password)
                     _mutableSignupState.value = SignupState.Signup(user)
                 }
             }
         }
+    }
+
+    private fun createUser(
+        email: String,
+        info: String,
+        password: String
+    ): User {
+        val userId = email.takeWhile { it != '@' } + "Id"
+        val user = User(userId, email, info)
+        usersForPassword.getOrPut(password, ::mutableListOf).add(user)
+        return user
     }
 
     private val usersForPassword = HashMap<String, MutableList<User>>()
