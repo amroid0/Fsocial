@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.amroid.fsocial.domain.validation.CredentialValidationResult
 import com.amroid.fsocial.domain.validation.RegexCredentialValidator
+import com.amroid.fsocial.domain.User
 
 class SignupViewModel(val regexCredentialValidator: RegexCredentialValidator) : ViewModel() {
     private val _mutableSignupState = MutableLiveData<SignupState>()
@@ -17,7 +18,12 @@ class SignupViewModel(val regexCredentialValidator: RegexCredentialValidator) : 
             CredentialValidationResult.InvalidPassword ->
                 _mutableSignupState.value = SignupState.BadPassword
 
-            else -> {}
+            CredentialValidationResult.Valid -> {
+                val userId = email.takeWhile { it != '@' } +"Id"
+                val user = User(userId, email, info)
+                _mutableSignupState.value = SignupState.Signup(user)
+
+            }
         }
     }
 }
