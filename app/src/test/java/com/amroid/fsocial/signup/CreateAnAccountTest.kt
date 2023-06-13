@@ -11,9 +11,12 @@ import org.junit.jupiter.api.extension.ExtendWith
 class CreateAnAccountTest {
     @Test
     fun accountCreated(){
-        val viewModel = SignupViewModel(RegexCredentialValidator())
         val amr = User("bobId","bob@friends.com","about bob")
-        viewModel.createAccount(amr.email,"MaY@2021",amr.info)
-        assertEquals(SignupState.Signup(amr),viewModel.signupState.value)
+        val password = "MaY@2021"
+        val viewModel = SignupViewModel(RegexCredentialValidator()).also {
+            it.createAccount(amr.email,password,amr.info)
+        }
+        viewModel.createAccount(amr.email,password,amr.info)
+        assertEquals(SignupState.DuplicateAccount,viewModel.signupState.value)
     }
 }
