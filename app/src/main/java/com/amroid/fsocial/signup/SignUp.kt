@@ -3,7 +3,6 @@ package com.amroid.fsocial.signup
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.material3.MaterialTheme.typography
-import androidx.compose.material3.Typography
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,7 +42,6 @@ fun SignUp() {
         }
 
     }
-
 }
 
 @Composable
@@ -78,16 +76,16 @@ private fun ToggleVisibility(isVisible: Boolean, onToggle: () -> Unit) {
             if (isVisible) R.drawable.baseline_visibility_off_24 else R.drawable.baseline_visibility_24
         Icon(painter = painterResource(id = resource), contentDescription = "toggleVisbilty")
     }
-
-
 }
 
 @Composable
 private fun EmailField(value: String, onValueChange: (String) -> Unit) {
-    OutlinedTextField(value = value,
+    OutlinedTextField(
+        value = value,
         modifier = Modifier.fillMaxWidth(),
         onValueChange = onValueChange,
         label = {
             Text(text = stringResource(id = R.string.email))
-        })
+        }
+    )
 }

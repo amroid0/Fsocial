@@ -11,9 +11,10 @@ class SignupTest {
 
     @get:Rule
     val signUpTestRule = createAndroidComposeRule<MainActivity>()
+
     @Test
-    fun performSignup(){
-        launchSignupScreen(signUpTestRule){
+    fun performSignup() {
+        launchSignupScreen(signUpTestRule) {
             typeEmail("amr@gmail.com")
             typePassword("123")
             submit()
